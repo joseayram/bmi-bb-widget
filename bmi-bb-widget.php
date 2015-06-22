@@ -71,33 +71,27 @@ Class BMI_BB_Widget extends WP_Widget
 
   public function frontend_form()
   {
-    $form = "<form id='bmi-bb-widget-form' name='bmi-bb-widget-form' method='post'>"
-          .   "<div class='container'>"
-          .     "<div class='row'>"
-          .       "<h4><span>".__('BODY MASS INDEX', 'bmi-bb-widget')."</span></h4>"
-          .     "</div>"
-          .     "<div class='row'>"
+    $form = "<div class='container container-bmi-bb-widget'>"
+          .   "<form id='bmi-bb-widget-form' name='bmi-bb-widget-form' method='post'>"
+          .     "<h4><span>".__('BODY MASS INDEX', 'bmi-bb-widget')."</span></h4>"
           .     "<h6 class='bmi-bb-title'>".__('HEIGHT', 'bmi-bb-widget')."</h6>"
-          .     "</div>"
-          .     "<div class='row'>"
+          .     "<div class='row row-bmi-bb-widget'>"
           .       "<input type='text' name='height_ft' id='height_ft' placeholder='".__('ft', 'bmi-bb-widget')."' size='5' class='medicom-forms input-height'>"
           .       "<input type='text' name='height_in' id='height_in' placeholder='".__('in', 'bmi-bb-widget')."' size='5' class='medicom-forms input-height'>"
           .     "</div>"
-          .     "<div class='row'>"
           .     "<h6 class='bmi-bb-title'>".__('WEIGHT', 'bmi-bb-widget')."</h6>"
-          .     "</div>"
-          .     "<div class='row'>"
+          .     "<div class='row row-bmi-bb-widget'>"
           .       "<input type='text' name='weight_lb' id='weight_lb' placeholder='".__('pounds', 'bmi-bb-widget')."' class='medicom-forms'>"
           .     "</div>"
-          .     "<div class='row'>"
+          .     "<div class='row row-bmi-bb-widget'>"
           .       "<input type='submit' name='btn_bmi_submit' value='".__('Calculate', 'bmi-bb-widget')."' class='buton b_asset buton-2 buton-mini'>"
           .     "</div>"
-          .     "<div class='row'>"
+          .     "<div class='row row-bmi-bb-widget'>"
           .        "<span id='bmi-bb-widget-result' name='bmi-bb-widget-result' class='show-message'>".__('BMI RESULT: NO RESULT YET', 'bmi-bb-widget')."</span>"
           .        "<span id='bmi-bb-widget-error' name='bmi-bb-widget-error' class='hide-message'>".__('ERROR: ONLY NUMBERS', 'bmi-bb-widget')."</span>"
           .     "</div>"
-          .   "</div>"
-          . "</form>";
+          .   "</form>"
+          . "</div>";
 
     return $form;
   }
