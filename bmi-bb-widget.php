@@ -74,7 +74,7 @@ Class BMI_BB_Widget extends WP_Widget
     $form = "<form id='bmi-bb-widget-form' name='bmi-bb-widget-form' method='post'>"
           .   "<div class='container'>"
           .     "<div class='row'>"
-          .       "<h4 class='titleBorder'>".__('BODY MASS INDEX', 'bmi-bb-widget')."</h4>"
+          .       "<h4><span>".__('BODY MASS INDEX', 'bmi-bb-widget')."</span></h4>"
           .     "</div>"
           .     "<div class='row'>"
           .     "<h6 class='bmi-bb-title'>".__('HEIGHT', 'bmi-bb-widget')."</h6>"
