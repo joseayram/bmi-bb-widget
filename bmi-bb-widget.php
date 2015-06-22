@@ -10,25 +10,15 @@ Version: 1.0
 */
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 // Version
-define("BMI_BB_WIDGET_VERSION","1.0.0");
+define("BMI_BB_WIDGET_VERSION", "1.0.0");
+// Translations
+add_action('plugins_loaded', array('BMI_BB_WIDGET', 'load_textdomain'));
 // Register Widget
-add_action('widgets_init', 'bmi_bb_register_widget');
+add_action('widgets_init', array('BMI_BB_WIDGET', 'register_widget'));
 // Register style sheet.
-add_action('wp_enqueue_scripts', 'bmi_bb_register_assets');
-
-// Register Widget
-function bmi_bb_register_widget()
-{
-  register_widget('BMI_BB_Widget');
-}
-
-// Register Style Sheet.
-function bmi_bb_register_assets()
-{
-  wp_register_style('bmi-bb-widget', plugins_url('css/styles.css', __FILE__));
-  wp_enqueue_style('bmi-bb-widget');
-  wp_enqueue_script('bmi-bb-widget-app', plugins_url('js/app.js', __FILE__), array('jquery'));
-}
+add_action('wp_enqueue_scripts', array('BMI_BB_WIDGET', 'register_assets'));
+// Shortcode
+add_shortcode('bmi-bb-widget', array('BMI_BB_WIDGET', 'frontend_form'));
 
 Class BMI_BB_Widget extends WP_Widget
 {
@@ -44,6 +34,26 @@ Class BMI_BB_Widget extends WP_Widget
         'description' => __('A simple BMI Calculator Widget.', 'bmi-bb-widget'),
       )
     );
+  }
+
+  // Register Widget
+  public function register_widget()
+  {
+    register_widget('BMI_BB_Widget');
+  }
+
+  // Register Style Sheet.
+  public function register_assets()
+  {
+    wp_register_style('bmi-bb-widget', plugins_url('css/styles.css', __FILE__));
+    wp_enqueue_style('bmi-bb-widget');
+    wp_enqueue_script('bmi-bb-widget-app', plugins_url('js/app.js', __FILE__), array('jquery'));
+  }
+
+  // Load Translations
+  public function load_textdomain()
+  {
+    load_plugin_textdomain('bmi-bb-widget', false, basename( dirname( __FILE__ ) ) . '/languages' );
   }
 
   /**
