@@ -6,3 +6,31 @@
 #weight_lb {
   width: 84% !important;
 }
+
+.bmi-bb-title {
+  font-weight: bold;
+  color: #406FBF;
+}
+
+.hide-message {
+  display: none;
+}
+
+.show-message {
+  display: block;
+  text-align: center;
+}
+
+#bmi-bb-widget-result {
+  font-weight: bold;
+  color: #406FBF;
+}
+
+#bmi-bb-widget-error {
+  color: red;
+  font-weight: bolder;
+}
+
+.border-error {
+  border-color: red !important;
+}

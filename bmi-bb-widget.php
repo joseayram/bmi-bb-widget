@@ -1,13 +1,14 @@
 <?php
 /*
 Plugin Name: BMI BajaBariatrics Widget
+Text Domain: bmi-bb-widget
 Plugin URI: https://github.com/joseayram/bmi-bb-widget
 Description: Adds a widget that displays a BMI calculator.
 Author: José Ayrám
 Author URI: https://github.com/joseayram
 Version: 1.0
 */
-
+defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 // Version
 define("BMI_BB_WIDGET_VERSION","1.0.0");
 // Register Widget
@@ -40,7 +41,7 @@ Class BMI_BB_Widget extends WP_Widget
       'bmi_bb_widget',
       __( 'BMI BB Widget', 'text_domain' ),
       array(
-            'description' => __( 'A simple BMI Calculator Widget.', 'text_domain'),
+        'description' => __('A simple BMI Calculator Widget.', 'bmi-bb-widget'),
       )
     );
   }
@@ -63,20 +64,27 @@ Class BMI_BB_Widget extends WP_Widget
     $form = "<form id='bmi-bb-widget-form' name='bmi-bb-widget-form' method='post'>"
           .   "<div class='container'>"
           .     "<div class='row'>"
-          .       "<h4 class='titleBorder'>BODY MASS INDEX</h4>"
+          .       "<h4 class='titleBorder'>".__('BODY MASS INDEX', 'bmi-bb-widget')."</h4>"
           .     "</div>"
           .     "<div class='row'>"
-          .       "<input type='text' name='height_ft' id='height_ft' placeholder='ft' size='5' class='medicom-forms input-height'>"
-          .       "<input type='text' name='height_in' id='height_in' placeholder='in' size='5' class='medicom-forms input-height'>"
+          .     "<h6 class='bmi-bb-title'>".__('HEIGHT', 'bmi-bb-widget')."</h6>"
           .     "</div>"
           .     "<div class='row'>"
-          .       "<input type='text' name='weight_lb' id='weight_lb' placeholder='pounds' class='medicom-forms'>"
+          .       "<input type='text' name='height_ft' id='height_ft' placeholder='".__('ft', 'bmi-bb-widget')."' size='5' class='medicom-forms input-height'>"
+          .       "<input type='text' name='height_in' id='height_in' placeholder='".__('in', 'bmi-bb-widget')."' size='5' class='medicom-forms input-height'>"
           .     "</div>"
           .     "<div class='row'>"
-          .       "<input type='submit' name='btn_bmi_submit' value='Calculate' class='buton b_asset buton-2 buton-mini'>"
+          .     "<h6 class='bmi-bb-title'>".__('WEIGHT', 'bmi-bb-widget')."</h6>"
           .     "</div>"
           .     "<div class='row'>"
-          .        "<span id='bmi-bb-widget-result' name='bmi-bb-widget-result'>BMI RESULT:</span>"
+          .       "<input type='text' name='weight_lb' id='weight_lb' placeholder='".__('pounds', 'bmi-bb-widget')."' class='medicom-forms'>"
+          .     "</div>"
+          .     "<div class='row'>"
+          .       "<input type='submit' name='btn_bmi_submit' value='".__('Calculate', 'bmi-bb-widget')."' class='buton b_asset buton-2 buton-mini'>"
+          .     "</div>"
+          .     "<div class='row'>"
+          .        "<span id='bmi-bb-widget-result' name='bmi-bb-widget-result' class='show-message'>".__('BMI RESULT: NO RESULT YET', 'bmi-bb-widget')."</span>"
+          .        "<span id='bmi-bb-widget-error' name='bmi-bb-widget-error' class='hide-message'>".__('ERROR: ONLY NUMBERS', 'bmi-bb-widget')."</span>"
           .     "</div>"
           .   "</div>"
           . "</form>";
